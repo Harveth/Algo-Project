@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <chrono>
 
 using namespace std;
 
@@ -49,8 +50,8 @@ void printMinNumberOfCuts(vector<vector<string>> result) {
         cout <<"\033["<<ctr<<"m"<<i<<"\033[0m|";
         ctr++;
     }
-
-    cout << "\n\n Minimum Number Of Cuts\033[91m(recursive) :\033[0m" << minPartition.size() - 1 << endl;
+    cout << "\b \b";
+    cout << "\n\n Minimum Number Of Cuts \033[91m(Recursive):\033[0m " << minPartition.size() - 1 << endl;
 }
 
 vector<vector<string>> partition(string s) {
@@ -104,17 +105,25 @@ int palindromePartition(string str) {
     }
     return cut[length - 1];
 }
-void displayOutput() {
-    
-}
 
 int main()
 {
     string s = "ababxyutab";
     cout << " String input :"<<s<<endl;
     cout << "\n String Partitioning :";
+
+    auto t1 = chrono::high_resolution_clock::now();
     partition(s);
-    cout << endl;
-    cout << " Minimum number of cuts\033[93m(dynamic) :\033[0m" << palindromePartition(s)<<endl;
+    auto t2 = chrono::high_resolution_clock::now();
+
+    cout << " Recursive took: \033[91m" << chrono::duration<double, milli>(t2 - t1).count() << " ms\033[0m";
+    cout << endl<<endl;
+
+    t1 = chrono::high_resolution_clock::now();
+    int palindromePart = palindromePartition(s);
+    t2 = chrono::high_resolution_clock::now();
+
+    cout << " Minimum Number Of Cuts \033[93m(Dynamic):\033[0m   " << palindromePart <<endl;
+    cout << " Dynamic took:   \033[93m" << chrono::duration<double, milli>(t2 - t1).count() << " ms\033[0m"<<endl;
 }
 
