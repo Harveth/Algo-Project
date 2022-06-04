@@ -6,6 +6,6 @@ palindrome partitioning is getting the palindrome substrings inside a string
 Result : Minimum cuts  
 <hr>  
 
-### Appraoaches used:
--Divide and conquer [Link](https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction)  
--Dynamic programming [Link](https://www.geeksforgeeks.org/dynamic-programming/)  
+### Approaches used:
+-Divide and Conquer [Link](https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction)  
+-Dynamic Programming [Link](https://www.geeksforgeeks.org/dynamic-programming/)  
